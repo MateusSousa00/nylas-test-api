@@ -1,4 +1,4 @@
-import { AccountOutput } from './accounts';
+import { AccountDto } from './accounts';
 
 export type AuthenticateUserInput = {
   client_id: string;
@@ -13,8 +13,6 @@ export type AuthenticateUserInput = {
 
 export type AuthenticateUserOutput = {
   code: string;
-  message?: string;
-  type?: string;
 };
 
 export type SendAuthorizationHostedInput = {
@@ -29,8 +27,6 @@ export type SendAuthorizationHostedOutput = {
   account_id: string;
   email_address: string;
   provider: 'eas' | 'exchange' | 'ews' | 'outlook' | 'hotmail' | 'yahoo' | 'imap' | 'gmail' | 'custom';
-  message?: string;
-  type?: string;
 };
 
 export type SendAuthorizationNativeInput = {
@@ -133,7 +129,7 @@ export type ExchangeTheTokenInput = {
   code: string;
 };
 
-export type ExchangeTheTokenOutput = AccountOutput & {
+export type ExchangeTheTokenOutput = AccountDto & {
   access_token: string;
   billing_state: 'paid' | 'canceled' | 'trial';
 };
